@@ -31,12 +31,20 @@ export class MatrimonyComponent {
   }
 
   editUser(user: User): void {
+    this.isEditing = true;
+    this.editedUser = user;
+    
+
   }
 
   saveEditedUser(): void {
+    this.users = this.users.filter(u => u.id !== this.editedUser.id);
+    this.users.push(this.editedUser)
   }
 
   cancelEdit(): void {
+    this.isEditing=false
+    this.editedUser={} as User;
   }
 
   deleteUser(user: User): void {
@@ -45,7 +53,9 @@ export class MatrimonyComponent {
   }
 
   get filteredUsers(): User[] {
-    return [];
+    return this.users.filter(user => {
+      return user.name.toLowerCase().includes(this.searchKeyword.toLowerCase());
+    });
   }
   
 }

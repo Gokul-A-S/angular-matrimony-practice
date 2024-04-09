@@ -13,7 +13,7 @@
         <p>Age: {{ user.age }}</p>
         <p>Gender: {{ user.gender }}</p>
         <p>Occupation: {{ user.occupation }}</p>
-        <button>Edit</button>
+        <button (click)="editUser()">Edit</button>
         <button (click)="deleteUser(user)">Delete</button>
     </div>
 </div>
