@@ -1,0 +1,29 @@
+<h5>Add User</h5>
+<form (submit)="addUser()">
+    <input type="text" placeholder="Name" [(ngModel)]="newUser.name" name="name">
+    <input type="number" placeholder="Age" [(ngModel)]="newUser.age" name="age">
+    <input type="text" placeholder="Gender" [(ngModel)]="newUser.gender" name="gender">
+    <input type="text" placeholder="Occupation" [(ngModel)]="newUser.occupation" name="occupation">
+    <button type="submit">Add User</button>
+</form>
+<div><input type="text" [(ngModel)]="searchKeyword" name="search"></div>
+<div>
+    <div *ngFor="let user of users">
+        <p>Name: {{ user.name }}</p>
+        <p>Age: {{ user.age }}</p>
+        <p>Gender: {{ user.gender }}</p>
+        <p>Occupation: {{ user.occupation }}</p>
+        <button>Edit</button>
+        <button (click)="deleteUser(user)">Delete</button>
+    </div>
+</div>
+ <div *ngIf="isEditing">
+        <form>
+            <input type="text" placeholder="Name" value="John Doe">
+            <input type="number" placeholder="Age" value="30">
+            <input type="text" placeholder="Gender" value="Male">
+            <input type="text" placeholder="Occupation" value="Engineer">
+            <button type="submit">Save</button>
+            <button type="button">Cancel</button>
+        </form>
+</div>
